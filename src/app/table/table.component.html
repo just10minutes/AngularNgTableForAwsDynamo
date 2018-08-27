@@ -1,0 +1,60 @@
+<body>
+<div id="header" style="text-align: center;">
+  <a href="#" id="logo">Hackathon 2018</a>
+  <ul id="menu">
+    <li><a href="#" (click)="onButtonClickGcd()"><span>Gautrain Cards</span></a></li>
+    <li><a href="#" (click)="onButtonClickSbad()"><span>SB Acnt Details</span></a></li>
+    <li><a href="#" (click)="onButtonClickSbt()"><span>SB Transactions</span></a></li>
+    <li><a href="#" (click)="onButtonClickSbgcm()"><span>SB G Cards Meta</span></a></li>
+    <li><a href="#" (click)="onButtonClickGsgl()"><span>Gautrain Stations </span></a></li>    
+  </ul>
+</div>
+    
+
+  <a href="#" (click)="refreshPage()" class="action-button animate red" style="float:right">Refresh</a>
+  
+<div *ngIf="buttonClickedGcd" >
+<h1> Gautrain Card Details</h1>
+<ng2-smart-table 
+    [settings]="settings" 
+    [source]="details" (createConfirm)="addRecord($event)" (editConfirm)="updateRecord($event)" (deleteConfirm)="deleteRecord($event)" >
+</ng2-smart-table>
+</div>
+<div *ngIf="buttonClickedSbad" >
+  <h1> SB Account Details</h1>
+<ng2-smart-table 
+    [settings]="settingsSbAcntDetails" 
+    [source]="sbAcntDetails" (createConfirm)="addRecordSbAcntDetails($event)" (editConfirm)="updateRecordSbAcntDetails($event)" (deleteConfirm)="deleteRecordSbAcntDetails($event)" >
+</ng2-smart-table>
+
+</div>
+
+<div *ngIf="buttonClickedSbt" >
+  <h1> SB Transactions Details</h1>
+<ng2-smart-table 
+    [settings]="settingsSbt" 
+    [source]="sbt" (createConfirm)="addRecordSbt($event)" (deleteConfirm)="deleteRecordSbt($event)" >
+</ng2-smart-table>
+
+</div>
+
+<div *ngIf="buttonClickedSbgcm" >
+  <h1> SB Gautrain Meta Details</h1>
+<ng2-smart-table 
+    [settings]="settingsSbgcm" 
+    [source]="sbgcm" (createConfirm)="addRecordSbgcm($event)"  (deleteConfirm)="deleteRecordSbgcm($event)">
+</ng2-smart-table>
+
+</div>
+
+<div *ngIf="buttonClickedGsgl" >
+  <h1> Gautrain Station Geo Location Details</h1>
+<ng2-smart-table 
+    [settings]="settingsGsgl" 
+    [source]="gsgl" (createConfirm)="addRecordGsgl($event)" (editConfirm)="updateRecordGsgl($event)"  (deleteConfirm)="deleteRecordGsgl($event)">
+</ng2-smart-table>
+
+</div>
+
+
+</body>
